@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Raleway:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+    <title>Restaurante App</title>
+</head>
+<body>
+    <div class="redes">
+        <ul>
+            <li><i class="fab fa-facebook-f"></i></li>
+            <li><i class="fab fa-instagram"></i></li>
+            <li><i class="fab fa-youtube"></i></li>
+        </ul>
+    </div>
+    <main>
+        
+        <header id="home">
+            <nav>
+                <i class="fas fa-user-circle"></i>
+                <a href="./login/signIn.html">Iniciar sesion</a>
+            </nav>
+            <div class="contenedor">               
+                <img class="imgcomidas" src="./img/imgcomida1.jpg" alt="" id="imagenes">
+
+                <div class="cont-nav">
+                    <div>
+                        <img class="logo" src="./img/logo.png" alt="">
+                    </div>
+
+                    <div class="cont-ul">
+                        <ul>
+                            <li>
+                                <a href="">HOME</a>
+                            </li>
+                            <li>
+                                <a href="">INSTRUCCIONES</a>
+                            </li>
+                            <li>
+                                <a href="">PEDIDOS</a>
+                            </li>
+                        </ul>
+                    </div> 
+                </div>
+
+                <div class="atras botones">
+                    &#60
+                </div>
+                <div class="adelante botones">
+                    &#62
+                </div>
+            </div>
+        </header>
+        <section class="about" id="about">
+           
+           <div class="presentacion">
+                <H2>¿COMO FUNCIONA?</H2>
+                <p>Pedí lo que quieras y completá tu compra al final de la página</p>
+           </div>
+           <div class="instrucciones ordenar">
+               <div>
+                <i class="fas fa-check-circle"></i>
+                <h3>INICIA SESION</h3>
+                <p>Registrate para poder acceder a todos nuestros productos</p>
+               </div>
+               <div>
+                <i class="fas fa-utensils"></i>
+                <h3>ORDENA TU COMPRA</h3>
+                <p>Agrega productos, categorias y opcionales en tiempo real</p>
+               </div>
+               <div>
+                <i class="fas fa-credit-card"></i>
+                <h3>METODOS DE PAGO</h3>
+                <p>Pagá online con tu propia cuenta de Mercado Pago</p>
+               </div>
+           </div>
+           <div class="instrucciones delivery">
+            <div>
+                <i class="fas fa-percent"></i>
+             <h3>10% de descuento</h3>
+             <p>Solo por este mes</p>
+            </div>
+            <div>
+                <i class="fas fa-beer"></i>
+             <h3>Cerveza artesanal</h3>
+             <p>Con una compra mayor a $2000 </br> te llevas 1 litro de cerveza artesanal</p>
+            </div>
+            <div>
+                <i class="fas fa-motorcycle"></i>
+             <h3>Delivery sin cargo</h3>
+             <p>Todos los dias a cargo del restaurante</p>
+            </div>
+        </div>
+           
+        </section>
+       
+        <section class="listProducts" id="listProducts">
+            <div class="principalWrapper">
+                <h2>ORDENA TU COMPRA</h2>
+                <ul id='products-container'>
+                  <!-- Lista de comidas -->
+                </ul>
+            </div>
+        </section>
+        <section class="cartList" id="cartList">
+            <div class="principalWrapper">
+                <h2>Especialistas en el rubro gastronómico</h2>
+                <p>
+                    En "Cooking" todos nuestros platos son elaborados  <br>
+                    con las mejores materias primas y productos de calidad.
+                </p>
+                <div class="cart-wrapper">
+                    <div id='cart-list'>
+                        <!-- Lista de compra -->
+                    </div>
+                     
+                    <div class="total-items">
+                        <span>
+                            <strong>Total:</strong> <b id='totalAmount'>$ 0</b>
+                        </span>
+                    </div>
+                    <button type="button" id='onSubmit'>finalizar compra</button>
+                </div>
+            </div>
+        </section>
+        <section class="fundador">
+            <div>
+                <img src="./img/elonchef.jpg" alt="">
+            </div>
+            <div class="fundadorInfo">
+                <h2>Fundador de Cooking</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, sapiente veritatis hic quibusdam, </br>
+                    animi debitis quas vel ullam architecto sunt reiciendis sequi, nihil incidunt dolor doloremque qui </br>
+                    placeat voluptate modi nulla itaque exercitationem. Iure, adipisci commodi dolores eum unde </br>
+                    ipsum dolor sit amet consectetur, adipisicing elit. Est, sapiente veritatis hic quibusdam, </br>
+                    animi debitis quas vel ullam architecto sunt reiciendis sequi, nihil incidunt dolor doloremque qui </br> </br>
+                    Placeat voluptate modi nulla itaque exercitationem. Iure, adipisci commodi dolores eum unde </br>
+                    placeat voluptate modi nulla itaque exercitationem. Iure, adipisci commodi dolores eum unde </br>
+                    ipsum dolor sit amet consectetur, adipisicing elit. Est, sapiente veritatis hic quibusdam, </br>
+                    fugiat doloribus vel corrupti amet vitae minus ea dolore libero nemo.</p>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="contenedor-footer">
+                <div>
+                    <img class="logo logomq" src="./img/logo.png" alt="">
+                </div>
+                <div>
+                    <div class="flex">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>SUCURSAL</h3>
+                    </div>
+                    <h4>SUCURSAL 1234 - BUENOS AIRES</h4>
+                </div>
+                <div class="sucursalmq">
+                    <div class="flex">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>SUCURSAL</h3>
+                    </div>
+                    <h4>SUCURSAL 1234 - BUENOS AIRES</h4>
+                </div>
+            </div>
+        </footer>
+
+        <div class="wsp">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+
+    </main>
+
+    <script src="./js/index.js"></script>
+    <script src="./js/codigo.js"></script>
+</body>
+</html>
