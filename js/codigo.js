@@ -7,23 +7,30 @@ const productsContainer = document.getElementById('products-container');
 const cartList = document.getElementById('cart-list');
 const submitButton = document.getElementById('onSubmit');
 
+const store = document.getElementById('store');
+const btnLogin = document.getElementById('btnLogin');
+
 
 
 const getMeals = async () => {
     try {
-
         const response = await fetch(apiURL, {
             method: 'GET'
         });
 
         const json = await response.json();
       const { categories } = json;
-      renderMeals(categories);
+     
+      if (localStorage.getItem('token')){
+        renderMeals(categories);  
+      }
 
     } catch( error ) {
         alert(error);
     }
 };
+
+
 
 const renderMeals = (comidas) => {
     comidas.forEach(meal => {
@@ -68,18 +75,16 @@ const renderMeals = (comidas) => {
         li.appendChild(spanDescription);
         li.appendChild(spanPrice);
         li.appendChild(button);
-        button.addEventListener('click', () => {
-            
 
-            
+        button.addEventListener('click', () => {
+
             const comida = myCart.find(comida => comida.id === id);
             
             if (comida){
                 const index = myCart.indexOf(comida);
-                
                 comida.quantity ++;
-                
                 myCart[index] = comida;
+                
             }else{
                 const mealToCart = {
                     img: meal.strCategoryThumb,
@@ -89,6 +94,7 @@ const renderMeals = (comidas) => {
                     quantity: 1
                 };
                 myCart.push(mealToCart);
+
             }
            
             renderCartProduct();
@@ -99,6 +105,7 @@ const renderMeals = (comidas) => {
     });
 }
 
+
 const showTotalAmount = () => {
 
     let total = 0;
@@ -108,7 +115,6 @@ const showTotalAmount = () => {
 
     totalAmount.innerText = `$ ${total}`;
 }
-
 
 const renderCartProduct = () => {
     cartList.innerText=null;
@@ -160,12 +166,67 @@ const renderCartProduct = () => {
     })
 }
 
+// MOSTRAR ELEMENTOS DEPENDIENDO SI HAY TOKEN O NO
+
+    const navCont = document.querySelector('.navCont')
+    const principalWrapper = document.querySelector('.principalWrapper')
+    const h2Wrapper = document.querySelector('.h2Wrapper')
+    const cartWrapper = document.getElementById('cartWrapper')
+
+    if (localStorage.getItem('token')){
+        const pCerrar = document.createElement('a')
+
+        pCerrar.innerText='Cerrar sesion'
+
+        pCerrar.addEventListener('click', () => {
+            localStorage.removeItem("token");
+            location.reload()
+        });
+
+        pCerrar.className='pCerrar'
+
+        navCont.appendChild(pCerrar)
+    } else {
+        const aLogin = document.createElement('a')
+        const h2Login = document.createElement('h2')
+        h2Wrapper.style.display='none'
+        cartList.style.display='none'
+
+        aLogin.innerText='Iniciar sesion'
+        h2Login.innerText='INICIA SESION PARA ACCEDER A LOS PRODUCTOS'
+
+        aLogin.href='./../login/signIn.html'
+        navCont.appendChild(aLogin)
+        principalWrapper.appendChild(h2Login)
+        cartWrapper.style.display='none'
+    }
+
+//MENSAJE PARA FINALIZAR COMPRA
+
 submitButton.addEventListener('click', () => {
+
+    
+    const compraFinal = document.getElementById('compraFinal')
 
     cartList.innerHTML = null;
     myCart = [];
     showTotalAmount();
-    alert('Gracias por comprar en nuestro Restaurante');
+    
+    
+    const compraHecha = document.createElement('div')
+    const compraRealizada = document.createElement('h3')
+    const compraContacto = document.createElement('p')
+
+    compraHecha.className='compra';
+
+    compraRealizada.innerText='Gracias por su compra'
+    compraContacto.innerText='Estaremos en contacto con usted, una vez procesemos su orden'
+
+    compraFinal.appendChild(compraHecha)
+    compraHecha.appendChild(compraRealizada)
+    compraHecha.appendChild(compraContacto)
 });
+
+
 
 getMeals();

@@ -17,17 +17,16 @@
 <body>
     <div class="redes">
         <ul>
-            <li><i class="fab fa-facebook-f"></i></li>
-            <li><i class="fab fa-instagram"></i></li>
-            <li><i class="fab fa-youtube"></i></li>
+            <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://www.instagram.com/frandepe/"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><i class="fab fa-youtube"></i></a></li>
         </ul>
     </div>
     <main>
         
         <header id="home">
-            <nav>
+            <nav class="navCont">
                 <i class="fas fa-user-circle"></i>
-                <a href="./login/signIn.html">Iniciar sesion</a>
             </nav>
             <div class="contenedor">               
                 <img class="imgcomidas" src="./img/imgcomida1.jpg" alt="" id="imagenes">
@@ -43,10 +42,10 @@
                                 <a href="">HOME</a>
                             </li>
                             <li>
-                                <a href="">INSTRUCCIONES</a>
+                                <a href="#about">INSTRUCCIONES</a>
                             </li>
                             <li>
-                                <a href="">PEDIDOS</a>
+                                <a href="#listProducts">PEDIDOS</a>
                             </li>
                         </ul>
                     </div> 
@@ -105,20 +104,20 @@
        
         <section class="listProducts" id="listProducts">
             <div class="principalWrapper">
-                <h2>ORDENA TU COMPRA</h2>
+                <h2 class="h2Wrapper">ORDENA TU COMPRA</h2>
                 <ul id='products-container'>
                   <!-- Lista de comidas -->
                 </ul>
             </div>
         </section>
-        <section class="cartList" id="cartList">
+        <section class=" cartList" id="cartList">
             <div class="principalWrapper">
                 <h2>Especialistas en el rubro gastronómico</h2>
                 <p>
                     En "Cooking" todos nuestros platos son elaborados  <br>
                     con las mejores materias primas y productos de calidad.
                 </p>
-                <div class="cart-wrapper">
+                <div id="cartWrapper" class="cart-wrapper">
                     <div id='cart-list'>
                         <!-- Lista de compra -->
                     </div>
@@ -130,7 +129,9 @@
                     </div>
                     <button type="button" id='onSubmit'>finalizar compra</button>
                 </div>
+                <div id='compraFinal'></div>
             </div>
+           
         </section>
         <section class="fundador">
             <div>
