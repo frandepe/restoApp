@@ -320,10 +320,6 @@ margin-bottom: 10px;
   transition: all 200ms;
 }
 
-
-
-
-
 .imgComida{
   cursor: pointer;
   transition: all 100ms;
@@ -338,6 +334,39 @@ margin-bottom: 10px;
 
 .principalWrapper h2{
   font-family: var(--cursiva);
+}
+
+.searchContainer p{
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.searchContainer input {
+  margin-top: 10px;
+  padding: 5px;
+  width: 200px;
+  box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+}
+
+.searchContainer button{
+  width: 200px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: var(--terciario);
+  box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+}
+
+.searchContainer h3{
+  font-family: var(--cursiva);
+  font-size: 2em;
+  color: var(--primario);
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
 }
 
 .listProducts {

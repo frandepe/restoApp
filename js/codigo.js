@@ -9,8 +9,15 @@ const submitButton = document.getElementById('onSubmit');
 
 const store = document.getElementById('store');
 const btnLogin = document.getElementById('btnLogin');
+const inputSearch = document.getElementById('inputSearch');
+const formInput = document.getElementById('formInput');
+const productsSearch = document.getElementById('productsSearch');
+const cleanSearch = document.getElementById('cleanSearch');
+const esconderSearch = document.getElementById('esconderSearch');
+const contError = document.getElementById('contError');
 
 
+//LLAMADA A LA API
 
 const getMeals = async () => {
     try {
@@ -20,19 +27,130 @@ const getMeals = async () => {
 
         const json = await response.json();
       const { categories } = json;
+      console.log(categories);
      
       if (localStorage.getItem('token')){
         renderMeals(categories);  
       }
+      
 
     } catch( error ) {
         alert(error);
     }
 };
 
+// RENDERIZAR POR BUSQUEDA 
 
+const searchMeal = async (e) => {
+    e.preventDefault();
+    const term = inputSearch.value;
+    const pError = document.createElement('p')
+    try {
+        const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`, {
+            method: 'GET'
+        });
+        const json = await res.json();
+        console.log(json.meals);
+        // if (json.meals === null){
+        //     const pError = document.createElement('p')
+        //     pError.innerText='No se encontro'
+        //     formInput.appendChild(pError)
+        // } 
+        cleanSearch.addEventListener('click', () => {
+            productsSearch.innerHTML=''
+        })
+        
+            json.meals.forEach((meal)=> {
+
+                
+
+                const li = document.createElement('li');
+                const div = document.createElement('div');
+                
+                const id = meal.idMeal;
+                const img = document.createElement('img');
+                img.src = meal.strMealThumb;
+                img.alt = meal.strMeal;
+                img.classList = "imgComida"
+        
+                div.appendChild(img);
+                const spanDescription = document.createElement('span');
+                spanDescription.style.display="none"
+                spanDescription.innerText = meal.strInstructions;
+                spanDescription.style.fontWeight = "bold";
+                
+                img.addEventListener('click', () => {
+                    if (spanDescription.style.display === "none") {
+                        spanDescription.style.display = "flex";
+                      } else {
+                        spanDescription.style.display = "none";
+                      }
+                   
+                })
+        
+                const spanTitle = document.createElement('span');
+                spanTitle.innerText = meal.strMeal;
+                spanTitle.style.fontWeight = "bold";
+        
+                const spanPrice = document.createElement('span');
+                const price = Math.floor(Math.random() * 1000) + 450
+                spanPrice.innerText = `$ ${price}`
+        
+                const button = document.createElement('button');
+                button.innerText = 'Comprar';
+        
+                li.appendChild(div);
+                li.appendChild(spanTitle);
+                li.appendChild(spanDescription);
+                li.appendChild(spanPrice);
+                li.appendChild(button);
+        
+                button.addEventListener('click', () => {
+        
+                    const comida = myCart.find(comida => comida.id === id);
+                    
+                    if (comida){
+                        const index = myCart.indexOf(comida);
+                        comida.quantity ++;
+                        myCart[index] = comida;
+                        
+                    }else{
+                        const mealToCart = {
+                            img: meal.strMealThumb,
+                            name: meal.strMeal,
+                            price,
+                            id: meal.idMeal,
+                            quantity: 1
+                        };
+                        myCart.push(mealToCart);
+        
+                    }
+                   
+                    renderCartProduct();
+                    showTotalAmount();
+                });
+                productsSearch.appendChild(li);
+                contError.remove(pError)
+                })
+        
+    } catch (error) {
+        if (error){
+            pError.innerText='No hubo coincidencias, intenta una vez más. Ej: chicken/salad/egg...'
+            contError.appendChild(pError)
+            pError.style.margin='10px 0 10px 0'
+            pError.style.color='#da1e1e'
+        }
+            
+            
+    }
+}
+
+formInput.addEventListener('submit', searchMeal);
+
+//RENDERIZAR PRODUCTOS PRINCIPALES (EL MISMO CODIGO DE ARRIBA CAMBIANDO LA LLAMADA A LOS meal.sarasa)
 
 const renderMeals = (comidas) => {
+    
     comidas.forEach(meal => {
         const li = document.createElement('li');
         const div = document.createElement('div');
@@ -48,7 +166,6 @@ const renderMeals = (comidas) => {
         spanDescription.style.display="none"
         spanDescription.innerText = meal.strCategoryDescription;
         spanDescription.style.fontWeight = "bold";
-        
         
         img.addEventListener('click', () => {
             if (spanDescription.style.display === "none") {
@@ -75,6 +192,8 @@ const renderMeals = (comidas) => {
         li.appendChild(spanDescription);
         li.appendChild(spanPrice);
         li.appendChild(button);
+
+        
 
         button.addEventListener('click', () => {
 
@@ -105,6 +224,7 @@ const renderMeals = (comidas) => {
     });
 }
 
+//MOSTRAR PRECIO TOTAL
 
 const showTotalAmount = () => {
 
@@ -115,6 +235,8 @@ const showTotalAmount = () => {
 
     totalAmount.innerText = `$ ${total}`;
 }
+
+//RENDERIZAR EN EL CARRITO DE COMPRAS
 
 const renderCartProduct = () => {
     cartList.innerText=null;
@@ -191,6 +313,7 @@ const renderCartProduct = () => {
         const h2Login = document.createElement('h2')
         h2Wrapper.style.display='none'
         cartList.style.display='none'
+        esconderSearch.style.display='none'
 
         aLogin.innerText='Iniciar sesion'
         h2Login.innerText='INICIA SESION PARA ACCEDER A LOS PRODUCTOS'
