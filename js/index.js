@@ -35,3 +35,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carrousel(contenedor)
 })
+

@@ -108,10 +108,14 @@
             <div class="searchContainer" id="esconderSearch">
                 <p>Busca tu menú favorito &#11015</p>
                 <form id="formInput">
-                    <input class="inputSearch" type="text" id="inputSearch" placeholder="Chicken/egg/salad...">
+                    <input class="inputSearch" type="text" id="inputSearch" placeholder="&#128270">
                 </form>
-                <div id="contError"></div>
-                <button id="cleanSearch">Limpiar busqueda</button>
+                <div>
+                    <p id="contError">
+                        <!-- Catch -->
+                    </p>
+                </div>
+                <button class="cleanSearch" id="cleanSearch">Limpiar busqueda</button>
                 <ul id='productsSearch'>
                     <!-- Lista de comidas por busqueda -->
                 </ul>
@@ -122,7 +126,7 @@
                 </ul>
             </div>
         </section>
-        <section class=" cartList" id="cartList">
+        <section class=" cartList" id="contCartList">
             <div class="principalWrapper">
                 <h2>Especialistas en el rubro gastronómico</h2>
                 <p>
@@ -185,8 +189,8 @@
             </div>
         </footer>
 
-        <div class="wsp">
-            <i class="fab fa-whatsapp"></i>
+        <div id="goToCart" class="goToCart">
+            <i class="fas fa-shopping-cart"></i>
         </div>
 
     </main>

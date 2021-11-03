@@ -15,15 +15,20 @@
 
 * img {
   width: 100%;
-  height: auto; } 
+  height: auto; 
+} 
 
 body {
   width: 100vw;
   max-width: 100%;
-  max-height: 100%; }
+  max-height: 100%; 
+}
 
 html {
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth; 
+}
+
+/* ***** NAVBAR ***** */
 
 nav{
   text-align: end;
@@ -245,6 +250,7 @@ main {
     
   }
   
+/* ***** INSTRUCCIONES ***** */
  
 }
 
@@ -305,18 +311,18 @@ main {
 margin-bottom: 10px;
 }
 
-.wsp{
+.goToCart{
   position: fixed;
   right: 15px;
   font-size: 3em;
   top: calc(100% - 70px);
-  color: #075e54;
+  color: #000000;
   cursor: pointer;
   transition: all 200ms;
 }
 
-.wsp:hover{
-  color: #25d366;
+.goToCart:hover{
+  color: var(--primario);
   transition: all 200ms;
 }
 
@@ -345,21 +351,30 @@ margin-bottom: 10px;
 .searchContainer input {
   margin-top: 10px;
   padding: 5px;
-  width: 200px;
-  box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+  width: 300px;
+  box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
+  border-color: var(--secundario);
+
 }
 
-.searchContainer button{
-  width: 200px;
+.cleanSearch{
+  width: 400px;
+  padding: 5px;
   font-size: 1em;
   font-weight: bold;
   cursor: pointer;
-  background-color: var(--terciario);
-  box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.75);
+  background-color: var(--secundario);
+  box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
+  border: none;
+}
+
+#contError{
+  margin: 10px;
+  color: rgb(87, 86, 86);
 }
 
 .searchContainer h3{
@@ -367,6 +382,7 @@ margin-bottom: 10px;
   font-size: 2em;
   color: var(--primario);
   text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+  border-top: 1px solid black;
 }
 
 .listProducts {
@@ -590,3 +606,4 @@ margin-bottom: 10px;
 .compra p{
   font-weight: bold;
 }
+

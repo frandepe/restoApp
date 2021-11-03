@@ -17,6 +17,8 @@ const esconderSearch = document.getElementById('esconderSearch');
 const contError = document.getElementById('contError');
 
 
+
+
 //LLAMADA A LA API
 
 const getMeals = async () => {
@@ -44,18 +46,13 @@ const getMeals = async () => {
 const searchMeal = async (e) => {
     e.preventDefault();
     const term = inputSearch.value;
-    const pError = document.createElement('p')
     try {
         const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`, {
             method: 'GET'
         });
         const json = await res.json();
         console.log(json.meals);
-        // if (json.meals === null){
-        //     const pError = document.createElement('p')
-        //     pError.innerText='No se encontro'
-        //     formInput.appendChild(pError)
-        // } 
+        
         cleanSearch.addEventListener('click', () => {
             productsSearch.innerHTML=''
         })
@@ -130,18 +127,11 @@ const searchMeal = async (e) => {
                     showTotalAmount();
                 });
                 productsSearch.appendChild(li);
-                contError.remove(pError)
+                contError.innerText=''
                 })
         
     } catch (error) {
-        if (error){
-            pError.innerText='No hubo coincidencias, intenta una vez más. Ej: chicken/salad/egg...'
-            contError.appendChild(pError)
-            pError.style.margin='10px 0 10px 0'
-            pError.style.color='#da1e1e'
-        }
-            
-            
+        contError.innerText='No hubo coincidencias, intenta una vez más. Ej: chicken/salad/egg...'
     }
 }
 
@@ -353,3 +343,16 @@ submitButton.addEventListener('click', () => {
 
 
 getMeals();
+
+//ICONO PARA IR AL CART
+
+const goToCart = document.getElementById('goToCart');
+const contCartList = document.getElementById('contCartList');
+
+goToCart.addEventListener("click", subir);
+
+function subir() {
+    contCartList.scrollIntoView({
+        behavior: "smooth"
+    })
+}
