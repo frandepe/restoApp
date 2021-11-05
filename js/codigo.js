@@ -15,6 +15,7 @@ const productsSearch = document.getElementById('productsSearch');
 const cleanSearch = document.getElementById('cleanSearch');
 const esconderSearch = document.getElementById('esconderSearch');
 const contError = document.getElementById('contError');
+const goToCart = document.getElementById('goToCart');
 
 
 
@@ -304,6 +305,7 @@ const renderCartProduct = () => {
         h2Wrapper.style.display='none'
         cartList.style.display='none'
         esconderSearch.style.display='none'
+        goToCart.style.display='none'
 
         aLogin.innerText='Iniciar sesion'
         h2Login.innerText='INICIA SESION PARA ACCEDER A LOS PRODUCTOS'
@@ -345,8 +347,6 @@ submitButton.addEventListener('click', () => {
 getMeals();
 
 //ICONO PARA IR AL CART
-
-const goToCart = document.getElementById('goToCart');
 const contCartList = document.getElementById('contCartList');
 
 goToCart.addEventListener("click", subir);

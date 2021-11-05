@@ -37,18 +37,24 @@ const login = async () => {
         const p = document.createElement('p');
         const img = document.createElement('img');
         const a = document.createElement('a')
+        const pHome = document.createElement('p')
 
         h2.innerText='Bienvenido a Cooking';
         p.innerText='Disfrute de su compra'
+        pHome.innerText='Home ⬇'
         a.href='./../index.html'
         img.src='./../img/logo.png'
         img.alt='Cooking'
+
+        pHome.style.fontWeight='bold'
+        pHome.style.marginTop='10px'
 
         div.className='cont-bienvenido'
 
         contenedorFlex.appendChild(div);
         div.appendChild(h2)
         div.appendChild(p)
+        div.appendChild(pHome)
         div.appendChild(a)
         a.appendChild(img)
         } else {

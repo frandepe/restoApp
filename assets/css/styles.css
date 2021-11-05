@@ -249,6 +249,9 @@ main {
     margin-top: 40px;
     
   }
+
+ 
+
   
 /* ***** INSTRUCCIONES ***** */
  
@@ -313,12 +316,11 @@ margin-bottom: 10px;
 
 .goToCart{
   position: fixed;
+  transition: all 200ms;
+  bottom: 15px;
   right: 15px;
   font-size: 3em;
-  top: calc(100% - 70px);
-  color: #000000;
   cursor: pointer;
-  transition: all 200ms;
 }
 
 .goToCart:hover{
@@ -342,6 +344,10 @@ margin-bottom: 10px;
   font-family: var(--cursiva);
 }
 
+.searchContainer{
+  width: 100%;
+}
+
 .searchContainer p{
   margin-bottom: 10px;
   font-size: 1.2em;
@@ -359,8 +365,12 @@ margin-bottom: 10px;
 
 }
 
+.cont-btnClean{
+  width: 100%;
+}
+
 .cleanSearch{
-  width: 400px;
+  width: 300px;
   padding: 5px;
   font-size: 1em;
   font-weight: bold;
