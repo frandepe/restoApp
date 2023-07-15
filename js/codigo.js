@@ -286,7 +286,7 @@ const renderCartProduct = () => {
     const h2Wrapper = document.querySelector('.h2Wrapper')
     const cartWrapper = document.getElementById('cartWrapper')
 
-    if (localStorage.getItem('token')){
+   
         const pCerrar = document.createElement('a')
 
         pCerrar.innerText='Cerrar sesion'
@@ -299,22 +299,7 @@ const renderCartProduct = () => {
         pCerrar.className='pCerrar'
 
         navCont.appendChild(pCerrar)
-    } else {
-        const aLogin = document.createElement('a')
-        const h2Login = document.createElement('h2')
-        h2Wrapper.style.display='none'
-        cartList.style.display='none'
-        esconderSearch.style.display='none'
-        goToCart.style.display='none'
-
-        aLogin.innerText='Iniciar sesion'
-        h2Login.innerText='INICIA SESION PARA ACCEDER A LOS PRODUCTOS'
-
-        aLogin.href='./../login/signIn.html'
-        navCont.appendChild(aLogin)
-        principalWrapper.appendChild(h2Login)
-        cartWrapper.style.display='none'
-    }
+    
 
 //MENSAJE PARA FINALIZAR COMPRA
 
