@@ -32,9 +32,9 @@ const getMeals = async () => {
       const { categories } = json;
       console.log(categories);
      
-      if (localStorage.getItem('token')){
+  
         renderMeals(categories);  
-      }
+    
       
 
     } catch( error ) {
