@@ -281,7 +281,7 @@ const renderCartProduct = () => {
 
 // MOSTRAR ELEMENTOS DEPENDIENDO SI HAY TOKEN O NO
 
-    const navCont = document.querySelector('.navCont')
+  /*  const navCont = document.querySelector('.navCont')
     const principalWrapper = document.querySelector('.principalWrapper')
     const h2Wrapper = document.querySelector('.h2Wrapper')
     const cartWrapper = document.getElementById('cartWrapper')
@@ -298,7 +298,7 @@ const renderCartProduct = () => {
 
         pCerrar.className='pCerrar'
 
-        navCont.appendChild(pCerrar)
+        navCont.appendChild(pCerrar) */
     
 
 //MENSAJE PARA FINALIZAR COMPRA
